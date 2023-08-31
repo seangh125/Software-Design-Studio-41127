@@ -1,18 +1,34 @@
-.container {
+.content{
+
     width: 100%;
-    height: 100vh;
+	text-align:center;
+    height: 73vh;
     padding: 20px;
     box-sizing: border-box;
+	margin-top: 5vh;
+
+}
+
+.container {
+    width: 25%;
+	border:solid 1px #ccc;
+	text-align:center;
+    height: 73vh;
+    padding: 20px;
+    box-sizing: border-box;
+	margin:0 auto;
+	border-radius:30px;
 }
 .container .title {
     text-align: center;
     font-size: 28px;
     color: #234F94;
     font-weight: 800;
-    margin-top: 10vh;
+    margin-top: 2vh;
 }
 .from-container {
-    margin-top: 10vh;
+	margin:0 auto; 
+    margin-top: 2vh;
 
 }
 .password-label,.username-label {
@@ -20,6 +36,7 @@
     color: #000;
     font-weight: 600;
     margin-top: 5vh;
+	text-align: left;
 }
 .password-label i,.username-label i {
     font-style: normal;
@@ -29,7 +46,8 @@
     width: 100%;
     outline: none;
     border: none;
-    border-bottom: 1px solid #000;
+    border-bottom:  solid 1px #000;
+	border-radius:2px;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -45,8 +63,7 @@
     font-weight: 600;
     margin-left: 15px;
 }
-.loginbtn {
-    width: 25%;
+.loginbtn { 
     height: 45px;
     background-color: #529FDC;
     color: #fff;
