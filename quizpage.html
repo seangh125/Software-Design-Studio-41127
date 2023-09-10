@@ -3,34 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Page</title>
+    <title>Question Card</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="quizpage.css">
 </head>
 <body>
-    <h1>Example quiz</h1>
-    <form id="quiz-form">
-        <div class="card">
-            <h2>Question 1</h2>
+    <div class="card-container">
+    <div class="card">
+        <div class="card-body">
+            <div class="actions">
+                <h3 class="card-title">Question 1</h3>
+                <p>05:55</p>
+            </div>
+            <hr class="line">
             <p>What is your favourite colour?</p>
+        <div class="questions">
+            <div class="questionLine">
             <label>
                 <input type="radio" name="q1" value="yellow"> Yellow
             </label>
-            <br>
+           </div>
+ 
+           <div class="questionLine">
             <label>
                 <input type="radio" name="q1" value="red"> Red
             </label>
-            <br>
+           </div>
+           <div class="questionLine">
             <label>
                 <input type="radio" name="q1" value="Green"> Green
             </label>
-            <br>
+           </div>
+           <div class="questionLine">
             <label>
                 <input type="radio" name="q1" value="Blue"> Blue
             </label>
-            <br>
+           </div>
         </div>
-        <br>
-        <input type="submit" value="Next">
-    </form>
+  
+            <div class="footer">
+                <p class="total-questions">Q1/16</p>
+                <button  type="button" class="btn btn-primary">Next</button>
+                
+            </div>
+        </div>
+
+    </div>
+    </div>
 </body>
 </html>
