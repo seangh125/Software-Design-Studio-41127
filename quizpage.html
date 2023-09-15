@@ -5,8 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Question Card</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-      <script src="quizpage.js"></script>
-      <link rel="stylesheet" href="quizpage.css">
+      <script src="js\quizpage.js"></script>
+      <link rel="stylesheet" href="css\quizpage.css">
    </head>
    <body>
       <header>
@@ -58,17 +58,17 @@
             </div>
          </div>
       </div>
-      <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+      <div class="modal fade centered-modal" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
             <div class="modal-content"  >
                <div class="modal-body">
                   <div class = result-box>
                      <p id="resultMessage"></p>
-                     <img src="img\check.png" alt="Checkmark" class="check-icon">
+                     <img src="img/cross.png" alt="Checkmark" class="check-icon" id="resultIcon">
                   </div>
                   <div class = result-box>
                      <p class ="streak-text">Current Streak: <span id="correctStreak">0</span></p>
-                     <img src="img\streak.png" alt="Checkmark" class="streak-icon">
+                     <img src="img/streak.png" alt="Streak" class="streak-icon"">
                   </div>
                </div>
                <div class="modal-footer">

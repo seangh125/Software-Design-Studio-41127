@@ -1,3 +1,27 @@
+/* Nav bar */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Quiz page/card */
 .quiz-title{
 	text-align: center;
 	margin-top: 30px
@@ -109,28 +133,8 @@ label {
 .streak-text {
 	font-size: 25px;
 	font-weight: bold;
+
 }
 
 
-/* Nav bar */
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
 
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
