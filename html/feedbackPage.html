@@ -1,0 +1,78 @@
+<!-- feedbackPage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resultsCSS.css">
+    <title>Feedback Page</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .question {
+            width: 70%;
+            margin-bottom: 20px;
+        }
+
+        .question input {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .submit-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please give us your feedback!</h1>
+
+    <div class="question">
+        <h2>Question 1 Subtitle</h2>
+        <input type="text" placeholder="Enter your response for Question 1">
+    </div>
+
+    <div class="question">
+        <h2>Question 2 Subtitle</h2>
+        <input type="text" placeholder="Enter your response for Question 2">
+    </div>
+
+    <div class="question">
+        <h2>Question 3 Subtitle</h2>
+        <input type="text" placeholder="Enter your response for Question 3">
+    </div>
+
+    <!-- Add more questions as needed -->
+
+    <button class="submit-button" onclick="redirectToAnotherPage()">Submit</button>
+
+    <script>
+        function redirectToAnotherPage() {
+            // Change the URL to another page if needed
+            window.location.href = 'thankYouPage.html';
+        }
+    </script>
+</body>
+</html>
