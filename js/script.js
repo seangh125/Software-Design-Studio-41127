@@ -44,6 +44,7 @@ const resultsData = [
       `;
   
       resultsContainer.appendChild(resultElement);
+
     });
   }
   
