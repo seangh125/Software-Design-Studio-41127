@@ -21,11 +21,11 @@
             margin-bottom: 20px;
         }
 
-        .question input {
+        .question textarea {
             width: 100%;
             padding: 25px;
             font-size: 16px;
-            vertical-align: top;
+            resize: vertical; /* Allow vertical resizing */
         }
 
         .submit-button {
@@ -51,17 +51,17 @@
 
     <div class="question">
         <h2>How was your experience with our site? </h2>
-        <input type="text" placeholder="Enter your response for Question 1">
+        <textarea placeholder="Enter your response for Question 1"></textarea>
     </div>
-
+    
     <div class="question">
         <h2>What can we do to improve?</h2>
-        <input type="text" placeholder="Enter your response for Question 2">
+        <textarea placeholder="Enter your response for Question 2"></textarea>
     </div>
-
+    
     <div class="question">
         <h2>Any additional comments?</h2>
-        <input type="text" placeholder="Enter your response for Question 3">
+        <textarea placeholder="Enter your response for Question 3"></textarea>
     </div>
 
     <button class="submit-button" onclick="redirectToAnotherPage()">Submit</button>
