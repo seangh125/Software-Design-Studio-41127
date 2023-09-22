@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000; // Use the provided port or 3000 as a default
+const User = require('./models/userschema.js');
 
 // Connect to MongoDB 
 mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.net/User', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -14,14 +15,6 @@ mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.ne
         console.error('Error connecting to MongoDB:', err);
     });
 
-// Define a Mongoose model for user data
-const User = mongoose.model('accounts', {
-    name: String,
-    surname: String,
-    email: String,
-    password: String,
-    education: String
-});
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,11 +34,11 @@ app.post('/registerUser', async (req, res) => {
         const { name, surname, email, password, education } = req.body;
 
         const user = new User({
-            name,
-            surname,
-            email,
-            password,
-            education
+            name: req.body.name,
+            surname: req.body.surname,
+            email: req.body.email,
+            password: req.body.password,
+            education: req.body.education
         });
 
         await user.save();
