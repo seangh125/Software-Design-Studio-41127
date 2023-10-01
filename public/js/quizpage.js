@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectedAnswer === correctAnswer) {
                 correctStreak++;
                 resultMessage.textContent = "Correct!";
-                resultIcon.src = "img/check.png";
+                resultIcon.src = "public/img/check.png";
             } else {
                 correctStreak = 0;
                 resultMessage.textContent = "Wrong.";
-                resultIcon.src = "img/cross.png";
+                resultIcon.src = "public/img/cross.png";
             }
 
             correctStreakDisplay.textContent = correctStreak;
