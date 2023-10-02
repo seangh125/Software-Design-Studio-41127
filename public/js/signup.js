@@ -1,17 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("signupForm");
     const submitButton = document.getElementById("submitButton");
-
+  
     submitButton.addEventListener("click", function () {
-        const formData = new FormData(form);
-
-        fetch("http://localhost:3000/registerUser", {
-            method: "POST",
-            body: formData,
+      console.log('Firstname:', firstname);
+      // Convert the FormData object to a plain JavaScript object
+      const formDataObject = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value;
+      });
+  
+      // Send the data as JSON
+      fetch("/registerUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", 
+        },
+        body: JSON.stringify(formDataObject), 
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response data
+          console.log("Response:", data);
         })
-        .then(response => response.json())
-        .catch(error => {
-            console.error("Error:", error);
+        .catch((error) => {
+          console.error("Error:", error);
         });
     });
-});
+  });
