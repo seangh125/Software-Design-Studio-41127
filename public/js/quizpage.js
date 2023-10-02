@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Total: " + totalAnswers[currentDifficulty].rightAnswers + " " + currentDifficulty);
             if (totalAnswers[currentDifficulty].rightAnswers === 6 || totalAnswers[currentDifficulty].wrongAnswers === 6) {
                 alert("Test completed! User belongs to " + currentDifficulty + " level.");
+                window.location.href = "/resultspage";
             }
       
 
@@ -231,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         loadQuestion(currentQuestionIndex);
                     } else {
                         // Code for when quiz is completed
-                        alert("Quiz completed!"); 
+                        window.location.href = "/resultspage";
                     }
                 });
             

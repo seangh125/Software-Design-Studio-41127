@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './view/index.html'));
 });
 
-app.get('/signup.html', (req, res) => {
+app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
 });
 
@@ -32,17 +32,15 @@ app.get('/homepage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/homepage.html'));
 });
 
-app.get('/resultspage.html', (req, res) => {
-    res.sendFile(path.join(__dirname, './view/resultspage.html'));
-});
-
-app.get('/quizpage.html', (req, res) => {
+app.get('/quizpage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/quizpage.html'));
 });
 
-app.get('/resultspage.html', (req, res) => {
+app.get('/resultspage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/resultspage.html'));
 });
+
+
 
 // Handle form submissions
 app.post('/registerUser', async (req, res) => {
