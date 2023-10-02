@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 currentStreak++;
                 resultMessage.textContent = "Correct!";
-                resultIcon.src = "public/img/check.png";
+                resultIcon.src = "img/check.png";
             } else {
                 streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers++;
                 streaksByDifficulty[currentDifficulty].consecutiveRightAnswers = 0;
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 currentStreak = 0;
                 resultMessage.textContent = "Wrong.";
-                resultIcon.src = "public/img/cross.png";
+                resultIcon.src = "img/cross.png";
             }
             // If 6 questions are right, or 6 questions are wrong in a level then end the test as the tester belongs to that level
             console.log("Total: " + totalAnswers[currentDifficulty].rightAnswers + " " + currentDifficulty);

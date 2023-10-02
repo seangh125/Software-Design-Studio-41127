@@ -28,6 +28,22 @@ app.get('/signup.html', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
 });
 
+app.get('/homepage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/homepage.html'));
+});
+
+app.get('/resultspage.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/resultspage.html'));
+});
+
+app.get('/quizpage.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/quizpage.html'));
+});
+
+app.get('/resultspage.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/resultspage.html'));
+});
+
 // Handle form submissions
 app.post('/registerUser', async (req, res) => {
     try {
