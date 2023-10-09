@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000; // Use the provided port or 3000 as a default
-const User = require('./models/user');
-const userRoute = require('./routes/userRoute');
+const User = require('./public/models/user');
+const userRoute = require('./public/routes/userRoute');
 
 // Connect to MongoDB 
 mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.net/User', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -17,7 +17,7 @@ mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.ne
     });
 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
 // homepage 
