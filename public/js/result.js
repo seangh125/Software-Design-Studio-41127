@@ -1,38 +1,38 @@
-// Sample results data
-const resultsData = [
-    {
-      id: 1,
-      name: 'jack',
-      surname: 'smith',
-      date: '2023-09-15',
-      level: 'Highschool graduate',
-      point: '20',
-    }
-  ];
-  
-  // Function to display results
-  function displayResults() {
-    const resultsContainer = document.querySelector('.results');
-  
-    // Clear any existing content
-    resultsContainer.innerHTML = '';
-  
-    // Loop through the results data and create HTML elements to display each result
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionIdentifier = urlParams.get('sessionIdentifier');
+
+  const resultsContainer = document.querySelector('.results');
+
+  // Function to display results based on the data fetched from the server
+  function displayResults(resultsData) {
+    resultsContainer.innerHTML = ''; // Clear existing content
     resultsData.forEach(result => {
       const resultElement = document.createElement('div');
       resultElement.classList.add('result');
-  
+
       resultElement.innerHTML = `
         <p><strong>Date:</strong> ${result.date}</p>
-        <p><strong>Name:</strong> ${result.name} ${result.surname}</p>
-        <p><strong>Level:</strong> ${result.level}</p>
-        <p><strong>Points:</strong> ${result.point}</p>
+        <p><strong>Difficulty:</strong> ${result.difficulty}</p>
       `;
       resultsContainer.appendChild(resultElement);
-
     });
   }
-  
-  // Call the displayResults function to populate the page with data
-  displayResults();
-  
+
+  // Make an API request to fetch results based on the session identifier
+  fetch(`/getResults?sessionIdentifier=${sessionIdentifier}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        const resultsData = data.results;
+        displayResults(resultsData); // Populate the page with fetched data
+      } else {
+        console.error('Failed to fetch results:', data.message);
+        // Handle the error case
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching results:', error);
+      // Handle the error case
+    });
+});

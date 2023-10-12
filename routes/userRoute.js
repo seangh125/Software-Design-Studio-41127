@@ -16,7 +16,6 @@ router.post('/registerUser', async (req, res) => {
 
     // Save the user document to MongoDB
     const savedUser = await newUser.save();
-    console.log('User saved:', savedUser);
     res.status(200).json(savedUser);
   } catch (err) {
     console.error('Error saving user:', err);

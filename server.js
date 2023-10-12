@@ -6,7 +6,8 @@ const app = express();
 const port = process.env.PORT || 3000; // Use the provided port or 3000 as a default
 const User = require('./models/user');
 const userRoute = require('./routes/userRoute');
-
+const resultRoute = require('./routes/resultRoute');
+const getresultRoute = require('./routes/getResults');
 // Connect to MongoDB 
 mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.net/User', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -42,6 +43,8 @@ app.get('/resultspage', (req, res) => {
 });
 
 app.use('/', userRoute);
+app.use('/', resultRoute);
+app.use('/', getresultRoute);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

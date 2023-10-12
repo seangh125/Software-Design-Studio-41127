@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.getElementById("submitButton");
   
     submitButton.addEventListener("click", function () {
-      console.log('Firstname:', firstname);
+      const formData = new FormData(form);
       // Convert the FormData object to a plain JavaScript object
       const formDataObject = {};
       formData.forEach((value, key) => {
