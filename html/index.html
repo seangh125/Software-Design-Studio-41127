@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/resultsCSS.css">
+    <title>Results Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            padding: 20px;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%; 
+        }
+
+        .results {
+            flex: 1; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Results Page</h1>
+    </header>
+    
+    <main>
+        <section class="results">
+            <script src="../js/script.js"></script>
+        </section>
+        
+        <div class="image-container">
+            <img src="../public/img/image-7.png" alt="Overall Performance">
+        </div>
+    </main>
+
+    <button id="myButton" onclick="redirectToFeedbackPage()">Continue</button>
+</body>
+</html>
