@@ -1,0 +1,45 @@
+body, h1, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f2f2f2; /* Light gray background */
+    font-family: Helvetica, sans-serif;
+    color: #333; /* Dark gray text color */
+}
+
+h1 {
+    text-align: center;
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text color */
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#myButton {
+    /* Existing styles */
+    position: fixed;
+    bottom: 20px;
+    right: 130px;
+    /* Additional styles */
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #myButton:hover {
+    background-color: #2980b9;
+  }
+  

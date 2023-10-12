@@ -42,6 +42,13 @@ app.get('/resultspage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/resultspage.html'));
 });
 
+app.get('/feedbackpage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/feedbackPage.html'));
+});
+app.get('/thankyoupage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/thankYouPage.html'));
+});
+
 app.use('/', userRoute);
 app.use('/', resultRoute);
 app.use('/', getresultRoute);
@@ -49,3 +56,6 @@ app.use('/', getresultRoute);
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+
+
