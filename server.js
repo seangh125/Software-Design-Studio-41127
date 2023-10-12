@@ -42,6 +42,13 @@ app.get('/resultspage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/resultspage.html'));
 });
 
+app.get('/feedbackpage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/feedbackPage.html'));
+});
+app.get('/thankyoupage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/thankYouPage.html'));
+});
+
 app.use('/', userRoute);
 app.use('/', resultRoute);
 app.use('/', getresultRoute);
@@ -50,40 +57,5 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-// Quiz Schema
-const quizResultSchema = new mongoose.Schema({
-    user : String,
-    score: Number
-});
-
-const QuizResult = mongoose.model('QuizResult', quizResultSchema);
-
-//saving Quiz results.
-app.post('/api/quizresults', (req, res) => {
-    const {user, score} = req.body;
-
-    const quizResult = new QuizResult({
-        user, 
-        score
-    });
-
-    quizResult.save()
-        .then (savedResult => {
-            res.json(savedResult);
-        })
-        .catch(error => {
-            res.status(500).json({ error : 'Failed to save quiz result.'});
-        });
-});
-
-app.get('api/quizresults', (req, res) => {
-    QuizResult.find()
-        .then(results => {
-            res.json(results);
-        })
-        .catch(error => {
-            res.status(500).json({error: 'Failed to retrieve quiz results.'});
-        });
-});
 
 
