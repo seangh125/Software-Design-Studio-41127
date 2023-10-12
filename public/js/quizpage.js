@@ -11,6 +11,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentStreak = 0;
 
+    let timer;
+    const timerDisplay = document.getElementById("timer");
+
+    function startTimer(duration, display) {
+        function updateTimer() {
+            const remaining = Math.max(0, duration); 
+            const minutes = Math.floor(remaining / 60);
+            const seconds = remaining % 60;
+            display.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+
+            if (remaining > 0) {
+                duration--; 
+                // Update timer every second
+                timer = setTimeout(updateTimer, 1000); 
+            } else {
+                // Timer is 0 and ends test and goes to result page
+                window.location.href = "/resultspage";
+            }
+        }
+        updateTimer();
+    }
+
+    // Start timer with 1200 seconds which is 20 minutes
+    startTimer(1200, timerDisplay);
 
     const questions = [
         {

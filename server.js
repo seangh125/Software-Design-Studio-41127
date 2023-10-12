@@ -17,7 +17,7 @@ mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.ne
     });
 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
 // homepage 
