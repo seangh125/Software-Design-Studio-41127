@@ -1,0 +1,85 @@
+.content{
+
+    width: 100%;
+	text-align:center;
+    height: 73vh;
+    padding: 20px;
+    box-sizing: border-box;
+	margin-top: 5vh;
+
+}
+
+.container {
+    width: 25%;
+	border:solid 1px #ccc;
+	text-align:center;
+    height: 73vh;
+    padding: 20px;
+    box-sizing: border-box;
+	margin:0 auto;
+	border-radius:30px;
+}
+.container .title {
+    text-align: center;
+    font-size: 28px;
+    color: #234F94;
+    font-weight: 800;
+    margin-top: 2vh;
+}
+.from-container {
+	margin:0 auto; 
+    margin-top: 2vh;
+
+}
+.password-label,.username-label {
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+    margin-top: 5vh;
+	text-align: left;
+}
+.password-label i,.username-label i {
+    font-style: normal;
+    font-size: 18px;
+}
+.username-input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom:  solid 1px #000;
+	border-radius:2px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.password-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.forget {
+    color: #6698BC;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.loginbtn { 
+    height: 45px;
+    background-color: #529FDC;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid #4A7CA6;
+    margin-top: 5vh;
+}
+.register {
+    font-size: 12px;
+    font-weight: 700px;
+    text-align: center;
+    margin-top: 5vh;
+}
+.password-label {
+    margin-bottom: 5px;
+}

@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <title>Your Home Page</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
-   <div class = "content">
-	 <div class="container">
-      <h1 class="title">Log in</h1>
-      <div class="from-container">		
-        <p class="password-label"><i>u</i>sername</p>
-        <input class="password-input" type="text" name="" placeholder="Type your username" id="">
-        <p class="password-label"><i>p</i>assword</p>
-        <input class="password-input" type="text" name="" placeholder="Type your password" id="">
-      </div>
-      <p class="forget">Forget Password</p>
-      <p class="loginbtn">Log in</p>
-      <p class="register"><span>Not a member?</span><span style="color:#0c86d4;margin-left: 4px;">Sign up now</span></p>
-   </div>
-   </div>
-</body>
+    <header>
+        <div class="logo">
+            <img src="./img/logo.png" alt="Logo">
+        </div>
+    </header>
 
+    <h1 class="title">Privacy Preserving Adaptive Testing System</h1>
+    
+    <section class="main-content">
+        <div class="login-section">
+            <button id="loginButton" type="button">Log In</button>
+        </div>     
+        
+    </section>
+    
+    <div class="register-section">
+            <p>Not a member?</p>
+            <a href="https://www.google.com" class="register-link">
+            <button id="registerButton" type="button">Register Now</button>
+            </a>
+        </div>
+    
+    
+    <footer>
+        <p>&copy; 2023 Software Design Studio. Xin Chen.</p>
+    </footer>
+    
+    <script src="./js/Homepage.js"></script>
+</body>
 </html>
