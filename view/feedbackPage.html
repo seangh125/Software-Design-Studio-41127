@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/resultsCSS.css">
+    <title>Feedback Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .question {
+            width: 70%;
+            margin-bottom: 20px;
+        }
+
+        .question textarea {
+            width: 100%;
+            padding: 25px;
+            font-size: 16px;
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        .submit-button {
+            position: center;
+            bottom: 50px;
+            right: 10px;
+            padding: 10px 30px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please give us your feedback!</h1>
+
+    <div class="question">
+        <h2>How was your experience with our site? </h2>
+        <textarea placeholder="Enter your response for Question 1"></textarea>
+    </div>
+    
+    <div class="question">
+        <h2>What can we do to improve?</h2>
+        <textarea placeholder="Enter your response for Question 2"></textarea>
+    </div>
+    
+    <div class="question">
+        <h2>Any additional comments?</h2>
+        <textarea placeholder="Enter your response for Question 3"></textarea>
+    </div>
+
+    <button class="submit-button" onclick="redirectToAnotherPage()">Submit</button>
+
+    <script>
+        function redirectToAnotherPage() {
+            // Change the URL to another page if needed
+            window.location.href = '/thankyoupage';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Question Card</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../public/css/quizpage.css">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+         <div class="container">
+            <div class="navbar-brand">
+               <span class="mr-auto">Online Testing System</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="homepage">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Help</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <h1 class="quiz-title">Math Quiz</h1>
+      <div class="card-container">
+         <div class="card">
+            <div class="card-body">
+               <div class="card-header-custom">
+                  <h3 class="card-title">Question <span id="questionNumber">1</span></h3>
+                  <p class="timer" id="timer">20:00</p>
+               </div>
+               <hr class="line">
+               <p class="question"><b id="questionText">Loading question...</b></p>
+               <div class="questions">
+                  <div class="question-box">
+                     <label>
+                     <input type="radio" name="q" value="option1"> <span id="option1Text">Option 1</span>
+                     </label>
+                  </div>
+                  <div class="question-box">
+                     <label>
+                     <input type="radio" name="q" value="option2"> <span id="option2Text">Option 2</span>
+                     </label>
+                  </div>
+                  <div class="question-box">
+                     <label>
+                     <input type="radio" name="q" value="option3"> <span id="option3Text">Option 3</span>
+                     </label>
+                  </div>
+                  <div class="question-box">
+                     <label>
+                     <input type="radio" name="q" value="option4"> <span id="option4Text">Option 4</span>
+                     </label>
+                  </div>
+               </div>
+               <div class="card-footer-custom">
+                  <p class="total-questions">Q<span id="currentQuestion">1</span>/24</p>
+                  <button type="button" class="btn btn-primary next-button">Next</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade centered-modal" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <div class="result-box">
+                     <p id="resultMessage"></p>
+                     <img src="img/cross.png" alt="Checkmark" class="check-icon" id="resultIcon">
+                  </div>
+                  <div class="result-box">
+                     <p class="streak-text">Current Streak: <span id="currentStreak">0</span></p>
+                     <img src="../public/img/streak.png" alt="Streak" class="streak-icon">
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-primary next-question-button">Next Question</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="../public/js/quizpage.js"></script>
+   </body>
+</html>
