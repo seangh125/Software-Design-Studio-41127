@@ -4,8 +4,17 @@ const User = require('../models/user');
 
 router.post('/registerUser', async (req, res) => {
   const formData = req.body;
+
+  if (!formData.firstname || !formData.surname || !formData.email || !formData.password || !formData.education) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  const existingUser = await User.findOne({ email: formData.email });
+  if (existingUser) {
+    return res.status(409).json({ error: 'Email is already in use' });
+  }
+
   try {
-    // Create a new user document
     const newUser = new User({
       firstname: formData.firstname,
       surname: formData.surname,
@@ -14,9 +23,7 @@ router.post('/registerUser', async (req, res) => {
       education: formData.education,
     });
 
-    // Save the user document to MongoDB
     const savedUser = await newUser.save();
-    console.log('User saved:', savedUser);
     res.status(200).json(savedUser);
   } catch (err) {
     console.error('Error saving user:', err);

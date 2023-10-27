@@ -23,6 +23,7 @@
         <div>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
+            <p class="error" id="email-error"></p> 
         </div>
 
         <div>
@@ -42,9 +43,10 @@
             </select>
         </div>
 
-        <button type="button" id="submitButton">Submit</button>
-    </form>
+        <button id="submitButton" type="button">Submit</button>
+        <p class="error" id="general-error"></p>
+        
+        </form>
 
     <script defer src="../public/js/signup.js"></script>
-</body>
 </html>

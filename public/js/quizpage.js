@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let currentQuestionIndex = 0; 
+    const sessionIdentifier = Math.random().toString(36).substring(7);
 
+    let currentQuestionIndex = 0; 
     let currentDifficulty = "easy"; 
     const maxCorrectStreak = 2; 
     const maxLoseStreak = 2;
@@ -194,13 +195,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 streaksByDifficulty[currentDifficulty].consecutiveRightAnswers++;
                 console.log(streaksByDifficulty[currentDifficulty].consecutiveRightAnswers);
                 streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers = 0;
-
                 totalAnswers[currentDifficulty].rightAnswers++;
 
 
                 currentStreak++;
                 resultMessage.textContent = "Correct!";
-                resultIcon.src = "img/check.png";
+                resultIcon.src = "../public/img/check.png";
             } else {
                 streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers++;
                 streaksByDifficulty[currentDifficulty].consecutiveRightAnswers = 0;
@@ -209,13 +209,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 currentStreak = 0;
                 resultMessage.textContent = "Wrong.";
-                resultIcon.src = "img/cross.png";
+                resultIcon.src = "../public/img/cross.png";
             }
             // If 6 questions are right, or 6 questions are wrong in a level then end the test as the tester belongs to that level
             console.log("Total: " + totalAnswers[currentDifficulty].rightAnswers + " " + currentDifficulty);
             if (totalAnswers[currentDifficulty].rightAnswers === 6 || totalAnswers[currentDifficulty].wrongAnswers === 6) {
                 alert("Test completed! User belongs to " + currentDifficulty + " level.");
-                window.location.href = "/resultspage";
+                fetch("/save-Result", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ currentDifficulty, sessionIdentifier }),
+                  })
+                    .then((response) => response.json())
+                    .then((data) => {
+                      // Handle the response data
+                      console.log("Response:", data);
+                    })
+                    .catch((error) => {
+                      console.error("Error:", error);
+                    });
+                    window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
             }
       
 
@@ -256,7 +271,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         loadQuestion(currentQuestionIndex);
                     } else {
                         // Code for when quiz is completed
-                        window.location.href = "/resultspage";
+                        fetch("/save-Result", {
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ currentDifficulty, sessionIdentifier }),
+                          })
+                            .then((response) => response.json())
+                            .then((data) => {
+                              // Handle the response data
+                              console.log("Response:", data);
+                            })
+                            .catch((error) => {
+                              console.error("Error:", error);
+                            });
+                            window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
                     }
                 });
             
