@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const loginButton = document.getElementById('loginButton');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const loginButton = document.getElementById('loginButton');
     
-    loginButton.addEventListener('click', function(event) {
+//     loginButton.addEventListener('click', function(event) {
     
-    });
-});
+//     });
+// });

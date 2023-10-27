@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(data => {
           if (data.success) {
-              window.location.href = '/homepage'; 
+              window.location.href = '/homepagev2'; 
           } else {
               alert('Login failed. Please check your credentials.');
           }

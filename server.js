@@ -39,8 +39,8 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
 });
 
-app.get('/homepage', (req, res) => {
-    res.sendFile(path.join(__dirname, './view/homepage.html'));
+app.get('/homepagev2', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/homepagev2.html'));
 });
 
 app.get('/quizpage', (req, res) => {
