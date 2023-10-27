@@ -3,28 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE,edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../public/css/reset.css">
     <link rel="stylesheet" href="../public/css/login.css">
 </head>
 
 <body>
-   <div class = "content">
-	 <div class="container">
-      <h1 class="title">Log in</h1>
-      <div class="from-container">		
-        <p class="password-label"><i>u</i>sername</p>
-        <input class="password-input" type="text" name="" placeholder="Type your username" id="username-input">
-        <p class="password-label"><i>p</i>assword</p>
-        <input class="password-input" type="text" name="" placeholder="Type your password" id="password-input">
+  <div class="content">
+      <div class="container">
+          <h1 class="title">Log in</h1>
+          <div class="form-container">
+              <p class="password-label"><i>Email</i></p>
+              <input class="password-input" type="text" name="" placeholder="Type your email" id="email-input">
+              <p class="password-label"><i>Password</i></p>
+              <input class="password-input" type="password" name="" placeholder="Type your password" id="password-input">
+              <label for="rememberMe">Remember Me</label>
+              <input type="checkbox" id="rememberMe">
+          </div>
+          <p class="loginbtn" id="loginbtn">Log in</p>
+          <span>Not a member?</span>
+          <a href="/signup" style="color:#0c86d4; margin-left: 4px;">Sign up now</a>
       </div>
-      <p class="forget">Forget Password</p>
-      <p class="loginbtn" id="loginbtn">Log in</p>
-      <p class="register"><span>Not a member?</span><span style="color:#0c86d4;margin-left: 4px;">Sign up now</span></p>
-   </div>
-   </div>
+  </div>
 </body>
-    <script src="../public/js/login.js"></script>
+<script src="../public/js/login.js"></script>
 </html>

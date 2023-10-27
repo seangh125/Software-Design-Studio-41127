@@ -1,15 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const loginButton = document.getElementById('loginbtn');
-    
-    loginButton.addEventListener('click', function(event) {
-    event.preventDefault(); 
-    const usernameInput = document.getElementById('username-input');
-    const passwordInput = document.getElementById('password-input');
-     
-    if (usernameInput.value.trim() === '' || passwordInput.value.trim() === '') {
-      alert('please enter username and password!');
-    } else { 
-      window.location.href = 'homepage';
-    }
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.getElementById('loginbtn');
+  
+  loginBtn.addEventListener('click', () => {
+      const email = document.getElementById('email-input').value; 
+      const password = document.getElementById('password-input').value;
+      const rememberMe = document.getElementById('rememberMe').checked;
+
+      fetch('/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password, rememberMe }), 
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              window.location.href = '/homepage'; 
+          } else {
+              alert('Login failed. Please check your credentials.');
+          }
+      })
+      .catch(error => {
+          console.error('Login request failed:', error);
+      });
+  });
 });
