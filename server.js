@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 
 // homepage 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './view/index.html'));
+    res.sendFile(path.join(__dirname, './view/login.html'));
 });
 
 app.get('/signup', (req, res) => {
@@ -57,9 +57,7 @@ app.get('/feedbackpage', (req, res) => {
 app.get('/thankyoupage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/thankYouPage.html'));
 });
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, './view/login.html'));
-});
+
 app.use('/', userRoute);
 app.use('/', resultRoute);
 app.use('/', getresultRoute);
