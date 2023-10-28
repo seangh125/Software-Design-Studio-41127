@@ -13,11 +13,11 @@
     width: 25%;
 	border:solid 1px #ccc;
 	text-align:center;
-    height: 73vh;
+    height: 50vh;
     padding: 20px;
     box-sizing: border-box;
 	margin:0 auto;
-	border-radius:30px;
+	border-radius:15px;
 }
 .container .title {
     text-align: center;
@@ -65,7 +65,7 @@
 }
 .loginbtn { 
     height: 45px;
-    background-color: #529FDC;
+    background-color: #007bff;;
     color: #fff;
     text-align: center;
     line-height: 45px;
@@ -73,6 +73,7 @@
     border-radius: 8px;
     border: 1px solid #4A7CA6;
     margin-top: 5vh;
+    margin-bottom: 15px;
 }
 .register {
     font-size: 12px;

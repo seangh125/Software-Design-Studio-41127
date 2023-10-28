@@ -7,32 +7,33 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <h1>Sign Up</h1>
 
+    <div class="container">
+    <h1 class="title">Sign up</h1>
     <form id="signupForm">
         <div>
-            <label for="firstname">Name:</label>
-            <input type="text" id="firstname" name="firstname">
+            <p class="password-label"><i>Name</i></p>
+            <input class="password-input" type="text" id="firstname" name="firstname">
         </div>
 
         <div>
-            <label for="surname">Surname:</label>
-            <input type="text" id="surname" name="surname">
+            <p class="password-label"><i>Surname</i></p>
+            <input class="password-input" type="text" id="surname" name="surname">
         </div>
 
         <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+            <p class="password-label"><i>Email</i></p>
+            <input class="password-input" type="email" id="email" name="email">
             <p class="error" id="email-error"></p> 
         </div>
 
         <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
+            <p class="password-label"><i>Password</i></p>
+            <input class="password-input" type="password" id="password" name="password">
         </div>
 
         <div>
-            <label for="education">Education Level:</label>
+            <p class="password-label"><i>Education Level</i></p>
             <select id="education" name="education">
                 <option value="Year 10">Year 10</option>
                 <option value="Year 11">Year 11</option>
@@ -43,10 +44,13 @@
             </select>
         </div>
 
-        <button id="submitButton" type="button">Submit</button>
+        <button id="submitButton" class="loginbtn" type="button">Submit</button>
         <p class="error" id="general-error"></p>
-        
+        <span>Already a member?</span>
+        <a href="/" style="color:#0c86d4; margin-left: 4px;">Login</a>
+    
         </form>
+    </div>
 
     <script defer src="../public/js/signup.js"></script>
 </html>
