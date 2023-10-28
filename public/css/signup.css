@@ -37,7 +37,7 @@ content{
     width: 25%;
 	border:solid 1px #ccc;
 	text-align:center;
-    height: 50vh;
+    height: 100%;
     padding: 20px;
     box-sizing: border-box;
 	margin:0 auto;
@@ -51,7 +51,7 @@ content{
     font-weight: 800;
     margin-top: 2vh;
 }
-}
+
 .from-container {
 	margin:0 auto; 
     margin-top: 2vh;
@@ -101,4 +101,10 @@ content{
     border-radius: 8px;
     border: 1px solid #4A7CA6;
  
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
 }

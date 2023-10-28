@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE,edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
     <link rel="stylesheet" href="../public/css/login.css">
     <link rel="stylesheet" href="../public/css/kelvin.css">
 </head>
@@ -32,24 +31,27 @@
     </div>
 
   <div class="content">
-      <div class="container" style=" background-color: rgba(255, 255, 255, 0.808); text-align: left; margin: 13px; width: 400px; margin-left:auto; margin-right:auto; border-radius: 8px;">
+      <div class="container" style=" background-color: rgba(255, 255, 255, 0.808); text-align: left; margin: 13px; width: 400px; height: 100%; margin-left:auto; margin-right:auto; border-radius: 8px;">
           <h1 class="title">Log in</h1>
           <div class="form-container">
               <p class="email-label"><i>Email</i></p>
               <input class="email-input" type="text" name="" placeholder="Type your email" id="email-input">
               <p class="password-label"><i>Password</i></p>
               <input class="password-input" type="password" name="" placeholder="Type your password" id="password-input">
+              <div style="text-align: right;">
+                <label for="rememberMe">Remember Me</label>
+              <input type="checkbox" id="rememberMe">
+              </div>
               <br>
               <br>
-              
-          </div>
           <p class="loginbtn" id="loginbtn">Log in</p>
           <br>
-          <div style="text-align: center">
-            <span>Not a member?</span>
-            <a href="/signup" style="color:#0c86d4; margin-left: 4px; margin-top: 50px; font-size: 20;">Sign up here!</a>
+          <div style="text-align: center;">
+          <span>Not a member?</span>
+          <a href="/signup" style="color:#0c86d4; margin-left: 4px; margin-top: 50px; font-size: 20;">Sign up here!</a>
+          </div>
         </div>
-      </div>
+     </div>
   </div>
 </body>
 <script src="../public/js/login.js"></script>
