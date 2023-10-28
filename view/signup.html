@@ -39,24 +39,24 @@
     <h1 class="title">Sign up</h1>
     <form id="signupForm">
         <div>
-            <p class="password-label"><i>First Name</i></p>
-            <input placeholder="Type your first name" class="password-input" type="text" id="firstname" name="firstname">
+            <p class="password-label"><i>Name</i></p>
+            <input class="password-input" type="text" id="firstname" name="firstname">
         </div>
 
         <div>
             <p class="password-label"><i>Surname</i></p>
-            <input placeholder="Type your surname" class="password-input" type="text" id="surname" name="surname">
+            <input class="password-input" type="text" id="surname" name="surname">
         </div>
 
         <div>
             <p class="password-label"><i>Email</i></p>
-            <input placeholder="Type your email" class="password-input" type="email" id="email" name="email">
+            <input class="password-input" type="email" id="email" name="email">
             <p class="error" id="email-error"></p> 
         </div>
 
         <div>
             <p class="password-label"><i>Password</i></p>
-            <input placeholder="Type your password" class="password-input" type="password" id="password" name="password">
+            <input class="password-input" type="password" id="password" name="password">
         </div>
 
         <div>
@@ -70,14 +70,13 @@
                 <option value="Doctorate">Doctorate</option>
             </select>
         </div>
-
-        <button id="submitButton" class="loginbtn" type="button">Sign up</button>
+        <div style="text-align: center">
+        <button id="submitButton" class="loginbtn" type="button">Submit</button>
         <p class="error" id="general-error"></p>
         </div>
         <br>
         <span>Already a member?</span>
-        <a href="/login" style="color:#0c86d4; margin-left: 4px;">Login</a>
-    
+        <a href="login.html" style="color:#0c86d4; margin-left: 4px;">Login</a>
         </form>
     </div>
 </body>

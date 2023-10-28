@@ -13,12 +13,11 @@
     width: 25%;
 	border:solid 1px #ccc;
 	text-align:center;
-    height: 44vh;
+    height: 50vh;
     padding: 20px;
     box-sizing: border-box;
 	margin:0 auto;
 	border-radius:15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 .container .title {
     text-align: center;
@@ -32,13 +31,11 @@
     margin-top: 2vh;
 
 }
-
-
-.password-label,.username-label {
+.password-label {
     font-size: 14px;
     color: #000;
     font-weight: 600;
-    margin-top: 3vh;
+    margin-top: 5vh;
 	text-align: left;
 }
 
@@ -75,17 +72,15 @@
 }
 .loginbtn { 
     height: 45px;
-    width: 200px;
-    background-color: #007bff;
+    background-color: #007bff;;
     color: #fff;
     text-align: center;
     line-height: 45px;
     margin: 0 auto;
     border-radius: 8px;
     border: 1px solid #4A7CA6;
-    margin-top: 3vh;
+    margin-top: 5vh;
     margin-bottom: 15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 .register {
     font-size: 12px;
@@ -96,10 +91,3 @@
 .password-label {
     margin-bottom: 5px;
 }
-
-i {
-    color: #234F94;
-    font-weight: 800;
-
-}
-

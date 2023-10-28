@@ -4,19 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
   loginBtn.addEventListener('click', () => {
       const email = document.getElementById('email-input').value; 
       const password = document.getElementById('password-input').value;
-
+      const rememberMe = document.getElementById('rememberMe').checked;
 
       fetch('/login', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email, password }), 
+          body: JSON.stringify({ email, password, rememberMe }), 
       })
       .then(response => response.json())
       .then(data => {
           if (data.success) {
-              window.location.href = '/homepage'; 
+              window.location.href = '/homepagev2'; 
           } else {
               alert('Login failed. Please check your credentials.');
           }
