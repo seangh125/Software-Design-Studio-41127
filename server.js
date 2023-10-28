@@ -39,7 +39,7 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
 });
 
-app.get('/homepagev2', (req, res) => {
+app.get('/homepage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/homepage.html'));
 });
 
