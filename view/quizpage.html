@@ -6,32 +6,37 @@
       <title>Question Card</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
       <link rel="stylesheet" href="../public/css/quizpage.css">
+      <link rel="stylesheet" href="../public/css/kelvin.css">
    </head>
    <body>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-         <div class="container">
-            <div class="navbar-brand">
-               <span class="mr-auto">Online Testing System</span>
+
+            <div class="headerMenu">
+                <div class="container2">
+                    <div class="container2-box" style="flex-basis: 50%;">
+                        <div id="wrapper">
+                            <br>
+                            <div class="logo">
+                                <a href="homepage.html">
+                                <img src="../public/img/OTSlogo.png"/>
+                                <br>
+                                </a>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                   
+                    <div class="container2-box" style="flex-basis: 50%;">
+                        <div style="text-align: right; padding-right: 10px;">
+                        </div>  
+                    </div>
+                </div>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-               <ul class="navbar-nav">
-                  <li class="nav-item">
-                     <a class="nav-link" href="/homepagev2">Home</a>
-                  </li>
-                  <!-- <li class="nav-item">
-                     <a class="nav-link" href="#">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Help</a> -->
-                  <!-- </li> -->
-               </ul>
+            <div class="navbar1">
+                <a href="homepage.html">Home</a>
             </div>
-         </div>
-      </nav>
-      <h1 class="quiz-title">Math Quiz</h1>
+          
+      <h1 class="quiz-title" style="font-size: 28; color: white">Math Quiz</h1>
+
       <div class="card-container">
          <div class="card">
             <div class="card-body">
@@ -65,30 +70,33 @@
                </div>
                <div class="card-footer-custom">
                   <p class="total-questions">Q<span id="currentQuestion">1</span>/24</p>
-                  <button type="button" class="btn btn-primary next-button">Next</button>
+                  <button type="button" class="btn btn-primary next-button">Submit</button>
                </div>
             </div>
          </div>
       </div>
-      <div class="modal fade centered-modal" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-body">
-                  <div class="result-box">
-                     <p id="resultMessage"></p>
-                     <img src="img/cross.png" alt="Checkmark" class="check-icon" id="resultIcon">
-                  </div>
-                  <div class="result-box">
-                     <p class="streak-text">Current Streak: <span id="currentStreak">0</span></p>
-                     <img src="../public/img/streak.png" alt="Streak" class="streak-icon">
-                  </div>
+
+      <div class="card-container">
+   <div class="modal fade bottom-modal" style="width: 37rem; border-radius: 10%;" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-body">
+               <div class="result-box">
+                  <p id="resultMessage"></p>
+                  <img src="img/cross.png" alt="Checkmark" class="check-icon" id="resultIcon">
                </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-primary next-question-button">Next Question</button>
+               <div class="result-box">
+                  <p class="streak-text">Current Streak: <span id="currentStreak">0</span></p>
+                  <img src="../public/img/streak.png" alt="Streak" class="streak-icon">
                </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary next-button">Next Question</button>
             </div>
          </div>
       </div>
+   </div>
+</div>
       <script src="../public/js/quizpage.js"></script>
    </body>
-</html>
+</html
