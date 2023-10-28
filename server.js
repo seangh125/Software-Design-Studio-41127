@@ -43,6 +43,10 @@ app.get('/homepage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/homepage.html'));
 });
 
+app.get('/homepagev2', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/homepage.html'));
+});
+
 app.get('/quizpage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/quizpage.html'));
 });
