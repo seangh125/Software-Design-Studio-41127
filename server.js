@@ -31,7 +31,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
 // homepage 
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, './view/login.html'));
 });
 
@@ -39,8 +39,8 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
 });
 
-app.get('/homepagev2', (req, res) => {
-    res.sendFile(path.join(__dirname, './view/homepagev2.html'));
+app.get('/homepage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/homepage.html'));
 });
 
 app.get('/quizpage', (req, res) => {
