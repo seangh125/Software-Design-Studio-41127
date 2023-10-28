@@ -53,11 +53,20 @@
     font-style: normal;
     font-size: 18px;
 }
-.email-input,.password-input {
-    width: 100%;
-    outline: none;
-    border: none;
 
+.password-input {
+    width: 100%;
+    outline: black;
+    border: black;
+	border-radius:2px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.email-input{
+    width: 100%;
+    outline: black;
+    border: black;
 	border-radius:2px;
     padding: 10px;
     box-sizing: border-box;
