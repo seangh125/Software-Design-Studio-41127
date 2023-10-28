@@ -40,7 +40,7 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/homepagev2', (req, res) => {
-    res.sendFile(path.join(__dirname, './view/homepagev2.html'));
+    res.sendFile(path.join(__dirname, './view/homepage.html'));
 });
 
 app.get('/quizpage', (req, res) => {
