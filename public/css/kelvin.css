@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url("../img/homebackground.jpg");
+    background-image: url("../img/homebackground.png");
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;
@@ -650,7 +650,7 @@ box-shadow: 0px 0px 1px #777;
 
 
 /* Style the navigation bar */
-.navbar {
+.navbar1 {
     width: 100%;
     background-color: rgba(53, 52, 52, 0.719);
     overflow: auto;
@@ -658,7 +658,7 @@ box-shadow: 0px 0px 1px #777;
   }
   
 /* Navbar links */
-  .navbar a {
+  .navbar1 a {
     float: left;
     text-align: center;
     padding-top: 12px;
@@ -671,12 +671,12 @@ box-shadow: 0px 0px 1px #777;
   }
   
 /* Navbar links on mouse-over */
-  .navbar a:hover {
+  .navbar1 a:hover {
     background-color: rgba(0, 0, 0, 0.658);
   }
   
 /* Current/active navbar link */
-.navbar a:active {
+.navbar1 a:active {
   background-color: rgba(6, 149, 216, 0.5);
   box-shadow: 0 5px #666;
   transform: translate();
