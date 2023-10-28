@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../public/css/reset.css">
     <link rel="stylesheet" href="../public/css/signup.css">
+    <link rel="stylesheet" href="../public/css/kelvin.css">
     <title>Sign Up</title>
 </head>
+
 <body>
 
-    <div class="container">
+    <div class="headerMenu">
+        <div class="container2">
+            <div class="container2-box" style="flex-basis: 50%;">
+                <div id="wrapper">
+                    <br>
+                    <div class="logo"> 
+                        <img src="../public/img/OTSlogo.png"/>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+           
+            <div class="container2-box" style="flex-basis: 50%;">
+                <div style="text-align: right; padding-right: 10px;">
+                </div>  
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" style="background-color: rgba(255, 255, 255, 0.808);text-align: left; margin: 13px; width: 400px; margin-left:auto; margin-right:auto; border-radius: 8px;">
     <h1 class="title">Sign up</h1>
     <form id="signupForm">
         <div>
@@ -43,14 +70,15 @@
                 <option value="Doctorate">Doctorate</option>
             </select>
         </div>
-
+        <div style="text-align: center">
         <button id="submitButton" class="loginbtn" type="button">Submit</button>
         <p class="error" id="general-error"></p>
+        </div>
+        <br>
         <span>Already a member?</span>
-        <a href="/" style="color:#0c86d4; margin-left: 4px;">Login</a>
-    
+        <a href="login.html" style="color:#0c86d4; margin-left: 4px;">Login</a>
         </form>
     </div>
-
+</body>
     <script defer src="../public/js/signup.js"></script>
 </html>

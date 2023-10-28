@@ -22,23 +22,35 @@ label {
     height: 43px;
 }
 
+content{
+
+    width: 100%;
+	text-align:center;
+    height: 73vh;
+    padding: 20px;
+    box-sizing: border-box;
+	margin-top: 5vh;
+}
+
+
 .container {
     width: 25%;
 	border:solid 1px #ccc;
 	text-align:center;
-    height: 68vh;
+    height: 50vh;
     padding: 20px;
     box-sizing: border-box;
 	margin:0 auto;
 	border-radius:15px;
-    margin-top: 5vh;
 }
+
 .container .title {
     text-align: center;
     font-size: 28px;
     color: #234F94;
     font-weight: 800;
     margin-top: 2vh;
+}
 }
 .from-container {
 	margin:0 auto; 
