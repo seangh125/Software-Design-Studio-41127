@@ -115,7 +115,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
-    const nextButton = document.querySelector(".next-button");
+    const submitButton = document.querySelector(".submit-button");
+
+    function disableSubmitButton() {
+        submitButton.disabled = true;
+    }
+    
+    function enableSubmitButton() {
+        submitButton.disabled = false;
+    }
+    
 
     function loadQuestion(index) {
         let availableQuestions = questions.filter(question => question.difficulty === currentDifficulty);
@@ -171,7 +180,8 @@ document.addEventListener("DOMContentLoaded", function () {
     correctAnswer = loadQuestion(currentQuestionIndex);
 
     // When next button is clicked, check the selected answer
-    nextButton.addEventListener("click", function () {
+    submitButton.addEventListener("click", function () {
+        disableSubmitButton();
 
         const radioButtons = document.querySelectorAll('input[name="q"]');
         selectedAnswer = null;
@@ -255,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     currentDifficulty = "medium";
                 }
             }
+            
     
         
                 // Show modal
@@ -288,10 +299,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
                             window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
                     }
+                    enableSubmitButton();
                 });
             
         } else {
             alert("Please select an answer");
         }
+        
     });
 });
