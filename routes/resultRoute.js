@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Result = require('../models/resultModel'); 
+const Result = require('../models/resultModel');
 const User = require('../models/user');
 
 router.post('/save-Result', async (req, res) => {
@@ -28,6 +28,7 @@ router.post('/save-Result', async (req, res) => {
       difficulty: currentDifficulty,
       sessionIdentifier: sessionIdentifier,
       totalAnswers: totalAnswersData,
+      userEmail: req.session.user, // Add the user's email to the Result document
     });
 
     const savedResult = await result.save();
