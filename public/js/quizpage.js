@@ -180,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
  
     // When submit button is clicked, check the selected answer
     submitButton.addEventListener("click", function () {
-       disableSubmitButton();
  
        const radioButtons = document.querySelectorAll('input[name="q"]');
        selectedAnswer = null;
@@ -200,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
        const resultIcon = document.getElementById("resultIcon");
  
        if (selectedAnswer) {
+         disableSubmitButton();
           if (selectedAnswer === correctAnswer) {
              streaksByDifficulty[currentDifficulty].consecutiveRightAnswers++;
              console.log(streaksByDifficulty[currentDifficulty].consecutiveRightAnswers);
