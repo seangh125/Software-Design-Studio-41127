@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000; // Use the provided port or 3000 as a default
 const User = require('./models/user');
+const Question = require('./models/question');
 const session = require('express-session');
 const userRoute = require('./routes/userRoute');
 const resultRoute = require('./routes/resultRoute');
@@ -88,6 +89,16 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ success: false, message: 'Server error' });
     }
 });
+
+app.get('/api/questions', async (req, res) => {
+    try {
+      const questions = await Question.find();
+      res.json(questions);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to fetch questions' });
+    }
+  });
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
