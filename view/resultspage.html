@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/resultsCSS.css">
-
     <title>Results Page</title>
 </head>
 <body>
     <header>
-        <h1 class="title">Results Page</h1>
+        <h1 class="result-title">Results Page</h1>
     </header>
     <main>
         <section class="results">
             <div class="result-info">
-                <p class="result-info-text" id="difficulty"><strong>Difficulty:</strong></p>
-                <p class="result-info-text" id="date"><strong>Date:</strong></p>
-                <p class="result-info-text" id="time"><strong>Time:</strong></p>
+                <p class="result-info-text" id="difficulty"></p>
+                <p class="result-info-text" id="date"></p>
+                <p class="result-info-text" id="time"></p>
             </div>
             <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th>Wrong Answers</th>
+                        <th>Right Answers</th>
+                    </tr>
+                </thead>
                 <tbody>
+                    <!-- Rows for Year 10, Year 11, and Year 12 data will be populated here -->
                 </tbody>
             </table>
         </section>
     </main>
-    <script src="../public/js/result.js"></script>
     <a href="feedbackpage" class="feedbackpage-link">
         <button id="myButton" type="button">Continue</button>
     </a>
+    <script src="../public/js/result.js"></script>
 </body>
 </html>

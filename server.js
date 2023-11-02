@@ -10,6 +10,7 @@ const session = require('express-session');
 const userRoute = require('./routes/userRoute');
 const resultRoute = require('./routes/resultRoute');
 const getresultRoute = require('./routes/getResults');
+const Result = require('./models/resultModel');
 // Connect to MongoDB 
 mongoose.connect('mongodb+srv://zaxia12:HtfXqSCT6fqNdch6@quiz.lpdioep.mongodb.net/User', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -31,13 +32,25 @@ app.use(session({
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
-// homepage 
+
+function isAuthenticated(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './view/login.html'));
 });
 
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
+});
+
+app.get('/*', isAuthenticated, (req, res, next) => {
+    next();
 });
 
 app.get('/homepage', (req, res) => {
@@ -47,7 +60,7 @@ app.get('/homepage', (req, res) => {
 app.get('/homepagev2', (req, res) => {
     res.sendFile(path.join(__dirname, './view/homepage.html'));
 });
-
+ 
 app.get('/quizpage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/quizpage.html'));
 });
@@ -59,9 +72,15 @@ app.get('/resultspage', (req, res) => {
 app.get('/feedbackpage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/feedbackPage.html'));
 });
+
 app.get('/thankyoupage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/thankYouPage.html'));
 });
+
+app.get('/viewAllResultpage', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/viewAllResult.html'));
+});
+
 
 app.use('/', userRoute);
 app.use('/', resultRoute);
@@ -108,7 +127,19 @@ app.get('/session-data', (req, res) => {
     };
     res.json(sessionData);
   });
-  
+
+app.get('/viewAllResult', isAuthenticated, async (req, res) => {
+    try {
+        const userEmail = req.session.user; 
+        const results = await Result.find({ userEmail });
+
+        res.json({ results });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to fetch results' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
