@@ -44,11 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
       resultsContainer.appendChild(table);
   }
 
-  // Function to format the date as MM/DD/YYYY
-  function formatDate(dateString) {
-      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-      return new Date(dateString).toLocaleDateString(undefined, options);
-  }
+// Function to format the date as DD/MM/YYYY
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
 
   // Function to format the time as HH:MM:SS AM/PM
   function formatTime(dateString) {
