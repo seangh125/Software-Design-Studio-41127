@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const resultEntry = document.createElement('div');
                 resultEntry.classList.add('result-entry');
 
-
                 // Populate the HTML page with the result data
                 resultEntry.innerHTML += `
                     <div class="result-info">
@@ -47,6 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     </table>
                 `;
 
+                // Create a horizontal line (separator)
+                const separator = document.createElement('hr');
+                separator.classList.add('result-separator');
+
+                // Append the separator and result entry to the results container
+                resultsContainer.appendChild(separator);
                 resultsContainer.appendChild(resultEntry);
             });
         })
