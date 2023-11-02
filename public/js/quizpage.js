@@ -1,8 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
+async function getSessionData() {
+   try {
+     const response = await fetch('/session-data');
+     const sessionData = await response.json();
+     return sessionData.education;
+   } catch (error) {
+     console.error('Error fetching session data:', error);
+     return null; 
+   }
+ }
+
+ document.addEventListener('DOMContentLoaded', async () => {
     const sessionIdentifier = Math.random().toString(36).substring(7);
  
     let currentQuestionIndex = 0;
-    let currentDifficulty = "easy";
+    let currentDifficulty = await getSessionData();
+    
     const maxCorrectStreak = 2;
     const maxLoseStreak = 2;
  
@@ -36,78 +48,43 @@ document.addEventListener("DOMContentLoaded", function () {
  
     // Start timer with 1200 seconds which is 20 minutes
     startTimer(1200, timerDisplay);
- 
-    const questions = [{
-          questionNumber: 1,
-          question: "What is 2 + 2?",
-          options: ["3", "4", "5", "6"],
-          correctAnswer: "4",
-          difficulty: "easy",
-       },
-       {
-          questionNumber: 2,
-          question: "What is 3 x 3?",
-          options: ["6", "9", "12", "15"],
-          correctAnswer: "9",
-          difficulty: "easy",
-       },
- 
-       {
-          questionNumber: 3,
-          question: "What is the capital of France?",
-          options: ["Berlin", "Madrid", "Paris", "London"],
-          correctAnswer: "Paris",
-          difficulty: "medium",
-       },
-       {
-          questionNumber: 4,
-          question: "Who wrote 'Romeo and Juliet'?",
-          options: ["Charles Dickens", "Mark Twain", "William Shakespeare", "Jane Austen"],
-          correctAnswer: "William Shakespeare",
-          difficulty: "medium",
-       },
- 
-       {
-          questionNumber: 5,
-          question: "What is the square root of 144?",
-          options: ["9", "12", "10", "14"],
-          correctAnswer: "12",
-          difficulty: "hard",
-       },
-       {
-          questionNumber: 6,
-          question: "In which year did World War II end?",
-          options: ["1945", "1918", "1955", "1939"],
-          correctAnswer: "1945",
-          difficulty: "hard",
-       },
-    ];
- 
+
+    let questions = [];
+    fetch('/api/questions')
+    .then((response) => response.json())
+    .then((data) => {
+      questions = data; 
+      correctAnswer = loadQuestion(currentQuestionIndex);
+    })
+    .catch((error) => {
+      console.error('Failed to fetch questions:', error);
+    });
+
     const streaksByDifficulty = {
-       easy: {
+       "Year 10": {
           consecutiveRightAnswers: 0,
           consecutiveWrongAnswers: 0,
        },
-       medium: {
+       "Year 11": {
           consecutiveRightAnswers: 0,
           consecutiveWrongAnswers: 0,
        },
-       hard: {
+       "Year 12" : {
           consecutiveRightAnswers: 0,
           consecutiveWrongAnswers: 0,
        },
     };
  
     const totalAnswers = {
-       easy: {
+      "Year 10": {
           rightAnswers: 0,
           wrongAnswers: 0,
        },
-       medium: {
+       "Year 11": {
           rightAnswers: 0,
           wrongAnswers: 0,
        },
-       hard: {
+       "Year 12": {
           rightAnswers: 0,
           wrongAnswers: 0,
        },
@@ -128,13 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
  
     function loadQuestion(index) {
        let availableQuestions = questions.filter(question => question.difficulty === currentDifficulty);
- 
        // If no available questions of the current difficulty, switch to an easier difficulty
        if (availableQuestions.length === 0) {
-          if (currentDifficulty === "medium") {
-             currentDifficulty = "easy";
-          } else if (currentDifficulty === "hard") {
-             currentDifficulty = "medium";
+          if (currentDifficulty === "Year 11") {
+             currentDifficulty = "Year 10";
+          } else if (currentDifficulty === "Year 12") {
+             currentDifficulty = "Year 11";
           }
           availableQuestions = questions.filter(question => question.difficulty === currentDifficulty);
        }
@@ -176,9 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
        return correctAnswer;
     }
  
-    // Load the first question when the page loads
-    correctAnswer = loadQuestion(currentQuestionIndex);
-
     const radioButtons = document.querySelectorAll('input[name="q"]');
    // Add an event listener to each radio button to enable the submit button when checked
     radioButtons.forEach(function (radioButton) {
@@ -278,20 +251,20 @@ document.addEventListener("DOMContentLoaded", function () {
           if (streaksByDifficulty[currentDifficulty].consecutiveRightAnswers >= maxCorrectStreak) {
              // If 2 questions are right in a row or whatever maxCorrectStreak is set to then switch to harder difficulty
              streaksByDifficulty[currentDifficulty].consecutiveRightAnswers = 0;
-             if (currentDifficulty === "easy") {
-                currentDifficulty = "medium";
-             } else if (currentDifficulty === "medium") {
-                currentDifficulty = "hard";
+             if (currentDifficulty === "Year 10") {
+                currentDifficulty = "Year 11";
+             } else if (currentDifficulty === "Year 11") {
+                currentDifficulty = "Year 12";
              }
           }
  
           if (streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers >= maxLoseStreak) {
              // If 2 questions are wrong in a row or whatever maxLoseStreak is set to then switch to harder difficulty
              streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers = 0;
-             if (currentDifficulty === "medium") {
-                currentDifficulty = "easy";
-             } else if (currentDifficulty === "hard") {
-                currentDifficulty = "medium";
+             if (currentDifficulty === "Year 11") {
+                currentDifficulty = "Year 10";
+             } else if (currentDifficulty === "Year 12") {
+                currentDifficulty = "Year 11";
              }
           }
  
