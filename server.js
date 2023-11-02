@@ -81,6 +81,14 @@ app.get('/viewAllResultpage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/viewAllResult.html'));
 });
 
+app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error destroying session:', err);
+        }
+        res.redirect('/');
+    });
+});
 
 app.use('/', userRoute);
 app.use('/', resultRoute);
