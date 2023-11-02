@@ -680,7 +680,6 @@ box-shadow: 0px 0px 1px #777;
   
 /* Navbar links */
   .navbar1 a {
-    float: left;
     text-align: center;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -703,6 +702,12 @@ box-shadow: 0px 0px 1px #777;
   transform: translate();
 }
 
+.navbar1 a.left-link {
+  float: left;
+}
+.logout-button {
+  float: right;
+}
 /* float*/
     .column.side, .column.middle {
      width: 100%;
