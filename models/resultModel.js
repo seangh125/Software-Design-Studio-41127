@@ -21,6 +21,7 @@ const resultSchema = new mongoose.Schema({
       wrongAnswers: Number,
     },
   },
+  userEmail: String, // New field to store the user's email
 });
 
 const Result = mongoose.model('Result', resultSchema);
