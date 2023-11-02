@@ -123,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function enableSubmitButton() {
        submitButton.disabled = false;
     }
+    disableSubmitButton();
  
  
     function loadQuestion(index) {
@@ -177,6 +178,18 @@ document.addEventListener("DOMContentLoaded", function () {
  
     // Load the first question when the page loads
     correctAnswer = loadQuestion(currentQuestionIndex);
+
+    const radioButtons = document.querySelectorAll('input[name="q"]');
+   // Add an event listener to each radio button to enable the submit button when checked
+    radioButtons.forEach(function (radioButton) {
+      radioButton.addEventListener("change", function () {
+          if (radioButton.checked) {
+              enableSubmitButton();
+          } else {
+              disableSubmitButton();
+          }
+      });
+  });
  
     // When submit button is clicked, check the selected answer
     submitButton.addEventListener("click", function () {
@@ -220,6 +233,14 @@ document.addEventListener("DOMContentLoaded", function () {
              resultMessage.textContent = "Wrong.";
              resultIcon.src = "../public/img/cross.png";
           }
+
+          // Display streak icon if currentStreak is greater than 0
+          if (currentStreak > 0) {
+            streakIcon.style.display = "block";
+         } else {
+            streakIcon.style.display = "none";
+         }
+
           // If 6 questions are right, or 6 questions are wrong in a level then end the test as the tester belongs to that level
           console.log("Total: " + totalAnswers[currentDifficulty].rightAnswers + " " + currentDifficulty);
           if (totalAnswers[currentDifficulty].rightAnswers === 6 || totalAnswers[currentDifficulty].wrongAnswers === 6) {
@@ -247,9 +268,9 @@ document.addEventListener("DOMContentLoaded", function () {
  
  
           currentStreakDisplay.textContent = currentStreak;
- 
+          // Adapative Mechanism
           if (streaksByDifficulty[currentDifficulty].consecutiveRightAnswers >= maxCorrectStreak) {
-             // If 3 questions are right in a row then switch to harder difficulty
+             // If 2 questions are right in a row or whatever maxCorrectStreak is set to then switch to harder difficulty
              streaksByDifficulty[currentDifficulty].consecutiveRightAnswers = 0;
              if (currentDifficulty === "easy") {
                 currentDifficulty = "medium";
@@ -259,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
  
           if (streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers >= maxLoseStreak) {
-             // If 3 questions are wrong in a row then switch to harder difficulty
+             // If 2 questions are wrong in a row or whatever maxLoseStreak is set to then switch to harder difficulty
              streaksByDifficulty[currentDifficulty].consecutiveWrongAnswers = 0;
              if (currentDifficulty === "medium") {
                 currentDifficulty = "easy";
@@ -303,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
                    });
                 window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
              }
-             enableSubmitButton();
+             disableSubmitButton();
           });
  
        } else {
