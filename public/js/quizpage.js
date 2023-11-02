@@ -175,6 +175,12 @@ async function getSessionData() {
              selectedAnswer = radioButton.value;
           }
        });
+       
+       radioButtons.forEach(function (radioButton) {
+         radioButton.disabled = true;
+      });
+
+
        console.log("Selected answer:", selectedAnswer);
        console.log("Correct answer:", correctAnswer);
  
@@ -298,6 +304,10 @@ async function getSessionData() {
                 window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
              }
              disableSubmitButton();
+             radioButtons.forEach(function (radioButton) {
+               radioButton.disabled = false;
+            });
+             
           });
  
        } else {
