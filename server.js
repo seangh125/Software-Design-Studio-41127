@@ -68,7 +68,7 @@ app.use('/', resultRoute);
 app.use('/', getresultRoute);
 
 app.post('/login', async (req, res) => {
-    const { email, password, rememberMe } = req.body; 
+    const { email, password, rememberMe } = req.body;
 
     try {
         const user = await User.findOne({ email, password });
@@ -76,12 +76,13 @@ app.post('/login', async (req, res) => {
         if (!user) {
             res.json({ success: false, message: 'Invalid email or password' });
         } else {
-            req.session.user = user.email; 
-            
+            req.session.user = user.email;
+            req.session.education = user.education;
+            console.log('Session data:', req.session);
             if (rememberMe) {
-                req.session.cookie.maxAge = 7 * 24 * 60 * 60 * 1000; 
+                req.session.cookie.maxAge = 7 * 24 * 60 * 60 * 1000;
             }
-            
+
             res.json({ success: true, message: 'Login successful' });
         }
     } catch (error) {
@@ -100,6 +101,14 @@ app.get('/api/questions', async (req, res) => {
     }
   });
 
+app.get('/session-data', (req, res) => {
+    const sessionData = {
+      user: req.session.user,
+      education: req.session.education,
+    };
+    res.json(sessionData);
+  });
+  
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

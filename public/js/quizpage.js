@@ -1,8 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
+async function getSessionData() {
+   try {
+     const response = await fetch('/session-data');
+     const sessionData = await response.json();
+     return sessionData.education;
+   } catch (error) {
+     console.error('Error fetching session data:', error);
+     return null; 
+   }
+ }
+
+ document.addEventListener('DOMContentLoaded', async () => {
     const sessionIdentifier = Math.random().toString(36).substring(7);
  
     let currentQuestionIndex = 0;
-    let currentDifficulty = "Year 10";
+    let currentDifficulty = await getSessionData();
+    
     const maxCorrectStreak = 2;
     const maxLoseStreak = 2;
  
