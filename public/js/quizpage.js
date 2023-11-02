@@ -225,23 +225,24 @@ async function getSessionData() {
           if (totalAnswers[currentDifficulty].rightAnswers === 6 || totalAnswers[currentDifficulty].wrongAnswers === 6) {
              alert("Test completed! User belongs to " + currentDifficulty + " level.");
              fetch("/save-Result", {
-                   method: "POST",
-                   headers: {
-                      "Content-Type": "application/json",
-                   },
-                   body: JSON.stringify({
-                      currentDifficulty,
-                      sessionIdentifier
-                   }),
-                })
-                .then((response) => response.json())
-                .then((data) => {
-                   // Handle the response data
-                   console.log("Response:", data);
-                })
-                .catch((error) => {
-                   console.error("Error:", error);
-                });
+               method: "POST",
+               headers: {
+                 "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                 currentDifficulty,
+                 sessionIdentifier,
+                 totalAnswers, // Include totalAnswers data
+               }),
+             })
+               .then((response) => response.json())
+               .then((data) => {
+                 // Handle the response data
+                 console.log("Response:", data);
+               })
+               .catch((error) => {
+                 console.error("Error:", error);
+               });
              window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
           }
  
@@ -284,23 +285,24 @@ async function getSessionData() {
              } else {
                 // Code for when quiz is completed
                 fetch("/save-Result", {
-                      method: "POST",
-                      headers: {
-                         "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify({
-                         currentDifficulty,
-                         sessionIdentifier
-                      }),
-                   })
-                   .then((response) => response.json())
-                   .then((data) => {
-                      // Handle the response data
-                      console.log("Response:", data);
-                   })
-                   .catch((error) => {
-                      console.error("Error:", error);
-                   });
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    currentDifficulty,
+                    sessionIdentifier,
+                    totalAnswers, // Include totalAnswers data
+                  }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    // Handle the response data
+                    console.log("Response:", data);
+                  })
+                  .catch((error) => {
+                    console.error("Error:", error);
+                  });
                 window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
              }
              disableSubmitButton();

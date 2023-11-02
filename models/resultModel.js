@@ -1,13 +1,26 @@
 const mongoose = require('mongoose');
 
 const resultSchema = new mongoose.Schema({
-  //probably add current user_id along with other data later
   difficulty: String,
   date: {
     type: Date,
-    default: Date.now, // This sets the default value to the current date and time
+    default: Date.now,
   },
   sessionIdentifier: String,
+  totalAnswers: {
+    "Year 10": {
+      rightAnswers: Number,
+      wrongAnswers: Number,
+    },
+    "Year 11": {
+      rightAnswers: Number,
+      wrongAnswers: Number,
+    },
+    "Year 12": {
+      rightAnswers: Number,
+      wrongAnswers: Number,
+    },
+  },
 });
 
 const Result = mongoose.model('Result', resultSchema);
