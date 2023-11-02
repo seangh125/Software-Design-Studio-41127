@@ -202,6 +202,12 @@ document.addEventListener("DOMContentLoaded", function () {
              selectedAnswer = radioButton.value;
           }
        });
+       
+       radioButtons.forEach(function (radioButton) {
+         radioButton.disabled = true;
+      });
+
+
        console.log("Selected answer:", selectedAnswer);
        console.log("Correct answer:", correctAnswer);
  
@@ -325,6 +331,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = `/resultspage?sessionIdentifier=${sessionIdentifier}`;
              }
              disableSubmitButton();
+             radioButtons.forEach(function (radioButton) {
+               radioButton.disabled = false;
+            });
+             
           });
  
        } else {
