@@ -5,6 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/resultsCSS.css">
     <title>Results Page</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('../public/img/results.png');
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    
+    header {
+        color: black;
+        background-color: white;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .result-title {
+        font-size: 36px;
+    }
+    
+    .results {
+        background-color: white;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        margin: 30px;
+    }
+    
+    .result-info {
+        margin-bottom: 30px;
+    }
+    
+    .result-info-text {
+        margin: 10px 0;
+        font-size: 20px;
+    }
+    
+    .result-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .result-table th, .result-table td {
+        border: 2px solid #ddd;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .result-table th {
+        background-color: #4285f4;
+        color: white;
+    }
+    
+    .result-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .feedbackpage-link {
+        margin-top: 30px;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    #myButton {
+        background-color: white;;
+        color: black;
+        border: none;
+        border-radius: 6px;
+        padding: 15px 30px;
+        cursor: pointer;
+        font-size: 24px;
+    }
+    
+    #myButton:hover {
+        background-color: white;
+    }
+    </style>
 </head>
 <body>
     <header>

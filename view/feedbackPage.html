@@ -3,74 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/resultsCSS.css">
-    
-    <title>Feedback Page</title>
+    <link rel="stylesheet" href="feedback.css">
+    <title>Feedback Form</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
             font-family: Arial, sans-serif;
+            background-image: url('../public/img/feedback.jpg');
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        .question {
-            width: 70%;
+        .container {
+            text-align: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 30px 80px; 
+            max-width: 600px;
+            margin: 0 auto; 
+        }
+
+        h1 {
+            font-size: 28px;
             margin-bottom: 20px;
         }
 
-        .question textarea {
+        .question {
+            margin: 20px 0;
+            text-align: left; 
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: left; 
+        }
+
+        textarea {
             width: 100%;
-            padding: 25px;
-            font-size: 16px;
-            resize: vertical; /* Allow vertical resizing */
+            height: 150px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 18px;
+            vertical-align: middle;
+            resize: none;
         }
 
         .submit-button {
-            position: center;
-            bottom: 50px;
-            right: 10px;
-            padding: 10px 30px;
-            font-size: 18px;
-            background-color: #3498db;
+            background-color: #4285f4;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 4px;
+            padding: 15px 30px;
             cursor: pointer;
+            font-size: 20px;
         }
 
         .submit-button:hover {
-            background-color: #2980b9;
+            background-color: #357ABD;
         }
     </style>
 </head>
 <body>
-    <h1>Please give us your feedback!</h1>
+    <div class="container">
+        <h1>Please give us your feedback!</h1>
 
-    <div class="question">
-        <h2>How was your experience with our site? </h2>
-        <textarea placeholder="Enter your response for Question 1"></textarea>
-    </div>
-    
-    <div class="question">
-        <h2>What can we do to improve?</h2>
-        <textarea placeholder="Enter your response for Question 2"></textarea>
-    </div>
-    
-    <div class="question">
-        <h2>Any additional comments?</h2>
-        <textarea placeholder="Enter your response for Question 3"></textarea>
-    </div>
+        <div class="question">
+            <h2>How was your experience with our site? </h2>
+            <textarea id="response1" placeholder="Enter your response for Question 1"></textarea>
+        </div>
+        
+        <div class="question">
+            <h2>What can we do to improve?</h2>
+            <textarea id="response2" placeholder="Enter your response for Question 2"></textarea>
+        </div>
+        
+        <div class="question">
+            <h2>Any additional comments?</h2>
+            <textarea id="response3" placeholder="Enter your response for Question 3"></textarea>
+        </div>
 
-    <button class="submit-button" onclick="redirectToAnotherPage()">Submit</button>
-
+        <button class="submit-button" onclick="submitFeedback()">Submit</button>
+    </div>
     <script>
-        function redirectToAnotherPage() {
-            // Change the URL to another page if needed
-            window.location.href = '/thankyoupage';
+        function submitFeedback() {
+            const response1 = document.getElementById('response1').value.trim();
+            const response2 = document.getElementById('response2').value.trim();
+            const response3 = document.getElementById('response3').value.trim();
+
+            if (response1 === '' || response2 === '' || response3 === '') {
+                alert('Please fill out all the feedback fields.');
+            } else {
+                window.location.href = '/thankyoupage';
+            }
         }
     </script>
 </body>
