@@ -31,13 +31,25 @@ app.use(session({
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
-// homepage 
+
+function isAuthenticated(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './view/login.html'));
 });
 
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './view/signup.html'));
+});
+
+app.get('/*', isAuthenticated, (req, res, next) => {
+    next();
 });
 
 app.get('/homepage', (req, res) => {
@@ -59,9 +71,15 @@ app.get('/resultspage', (req, res) => {
 app.get('/feedbackpage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/feedbackPage.html'));
 });
+
 app.get('/thankyoupage', (req, res) => {
     res.sendFile(path.join(__dirname, './view/thankYouPage.html'));
 });
+
+app.get('/viewAllResult', (req, res) => {
+    res.sendFile(path.join(__dirname, './view/viewAllResult.html'));
+});
+
 
 app.use('/', userRoute);
 app.use('/', resultRoute);
